@@ -1,1 +1,4 @@
 # ML-Project
+Music is a great stress buster, helps in relaxation, and elevates our mood. Songs have different lyrics and sentiments attached, unique audio features which leave an impact on the audience. While some songs become a sensation, some fail to leave their mark. With so many new artists coming up, releasing a top-of-the-chart song is all the more difficult.
+
+There have been different studies to predict the success of a song based on its audio features, lyrics, and emotion. Some researchers have also tried to study the artist's impact, releasing date, and other metadata surrounding the song. In this project, we aim to study the impact of acoustic features in predicting a song's popularity without any information on the artist. We also present a new dataset containing information only on Indian Songs; analyze the difference in the impact of acoustic features on song popularity in India as opposed to globally.
