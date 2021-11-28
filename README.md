@@ -14,3 +14,18 @@ We used the Spotipy library to access the Spotify API for song information retri
 
 ### Indian Dataset
 For our analysis on Indian Songs, we collected data on songs made by Indian Artists by querying track information based on 'Bollywood', 'India Indie', 'Tollywood' genres and by fetching online playlists consisting of songs by Indian Artists. We also collected data from our original dataset, whose artists were Indian. Following preprocessing techniques similar to our original dataset, we were able to extract 11,844 different songs by 1,394 different artists.
+
+## Feature Selection
+As the dataset had a lower dimension, we decided to perform feature selection instead of feature extraction. We used the following methods to distinguish which features greatly affected the predictions of the model and which features did not play a great role and could be dropped from the dataset.
+
+### Fischer's score
+It is a supervised algorithm that returns the rank of each feature based on the fisher’s score. This rank can be used for feature selection among different variables. The higher the rank of the variable, the more useful is the feature in predicting the target variable.
+
+### Information Gain
+Information gain for each variable is calculated in the context of the target variable and is used for feature selection. It is calculated by subtracting the weighted entropy for each variable from the original entropy. The higher the information gain, the greater is the decrease in entropy.
+
+### Correlation Coefficient
+It is a measure of the linear relationship between 2 or more variables. It helps in predicting a variable based on the value of another variable. It helps in deciding the features which are largely correlated with each other and can be dropped after determining their correlation with the target variable and therefore help in feature selection.
+
+### Inference and Final Data
+Therefore, after observing the results of all the above techniques we arrived at the conclusion to drop the features 'Mode', 'Key' and 'Time Signature'. The reason is that the features 'Mode', 'Key' and 'Time Signature' are providing relatively lower information as compared to other features. Also, it can be observed that the Fischer score value for 'Mode' and 'Time Signature' is relatively low. It can be also seen that a relatively lower value of Fischer score is obtained for the features 'Liveliness' and 'Loudness' but one of the reasons for this could be that as the computational complexity for Fischer score is relatively high for large amount of data, therefore we performed the Fischer score technique on a smaller subset of data. Since, in all the other techniques the features 'Loudness' and 'Liveliness' provides a good amount of information, therefore we decided not to drop these features. The data used for the regression and classification problems are thus different. The regression models use a custom data(extracted from spotipy) after the feature selection process which has a 'Popularity' attribute which refers to a popularity score. On the other hand, the classification data make use of a dataset from Github which have a 'target' attribute signifying hit/loss.
